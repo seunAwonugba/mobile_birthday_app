@@ -2,11 +2,16 @@ package com.raywenderlich.timefighter.view_pager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import java.lang.Math.abs
 
 class MainActivity : AppCompatActivity() {
     /**
@@ -43,6 +48,12 @@ class MainActivity : AppCompatActivity() {
         val adapter = ViewPagerAdapter(imageList)
         instanceOfViewPager.adapter =adapter
 
+
+
+
+
+
+
         /**
          * Array of names
          */
@@ -74,8 +85,24 @@ class MainActivity : AppCompatActivity() {
         instanceOfRecyclerView.layoutManager = LinearLayoutManager(this)
         instanceOfRecyclerView.setHasFixedSize(true)
 
+        instanceOfViewPager.offscreenPageLimit = 2
+        instanceOfViewPager.clipToPadding = false
+        instanceOfViewPager.clipChildren = false
+        instanceOfViewPager.setPadding(60,0,60,0)
+
         avatarName= arrayListOf<Avatar>()
-        getSingleAvatar()
+       getSingleAvatar()
+
+
+        val compositePageTransformer = CompositePageTransformer()
+
+        compositePageTransformer.addTransformer { page, position ->
+            page.scaleY = 1 - (0.25f * abs(position))
+        }
+
+        instanceOfViewPager.setPageTransformer(compositePageTransformer)
+
+
     }
 
     private fun getSingleAvatar(){
