@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">View_pager</string>
+    <string name="yaayText">yaay!</string>
+    <string name="birthdayAlertText">It\'s my birthday</string>
+    <string name="goodMorning">Good morning!</string>
+    <string name="edit_text">Search for celebrants...</string>
+    <string name="upcoming_birthdays">Upcoming Birthdays</string>
+    <string name="full_name">Seun Awonugba</string>
+    <string name="fullName">Seun Awonugba</string>
+    <string name="home_icon">Home</string>
+    <string name="people">People</string>
+    <string name="gifts">Gifts</string>
+    <string name="homee">Home</string>
+    <string name="hearts">hearts</string>
+    <string name="notification">notification</string>
+    <string name="search">search</string>
+</resources>
